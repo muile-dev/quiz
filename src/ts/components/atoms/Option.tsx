@@ -25,7 +25,7 @@ const Option: FC<Props> = ({ name, value, handleOnSave }) => {
         <input
           key={value}
           type='text'
-          className='form-control-plaintext'
+          className='form-control-plaintext px-2'
           defaultValue={value}
           onKeyPress={handleOnKeyPressEnter}
         />

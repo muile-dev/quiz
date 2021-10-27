@@ -23,7 +23,7 @@ const TextArea: FC<Props> = ({ defaultValue, onEnterInput }) => {
     <TextareaAutosize
       key={defaultValue}
       defaultValue={defaultValue}
-      style={{ height: 40 }}
+      style={{ height: 40, padding: 8 }}
       onKeyPress={handleOnKeyPressEnter}
       autoFocus
     />

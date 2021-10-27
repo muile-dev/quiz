@@ -38,7 +38,10 @@ const OptionList: FC<Props> = ({
           {deleteMode && (
             <div
               className='col-2 cursor-pointer'
-              onClick={(_) => handleOnDeleteOption(quiz.id, option.id)}
+              onClick={(_) =>
+                window.confirm('Are you sure you wish to delete this item?') &&
+                handleOnDeleteOption(quiz.id, option.id)
+              }
             >
               <Trash color='#e91e63' />
             </div>

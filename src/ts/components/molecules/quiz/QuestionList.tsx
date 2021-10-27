@@ -23,15 +23,21 @@ const QuestionList: FC<Props> = ({
         key={quiz.id}
         className={`${quizSelected?.id === quiz.id ? 'h4' : 'h5'}`}
       >
-        <div
-          onClick={(_) => handleOnClickQuestion(quiz.id)}
-          className='question-name cursor-pointer row'
-        >
-          <div className='col-10'> {quiz.question}</div>
+        <div className='question-name cursor-pointer row'>
+          <div
+            className='col-10'
+            style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}
+            onClick={(_) => handleOnClickQuestion(quiz.id)}
+          >
+            {quiz.question}
+          </div>
           {deleteMode && (
             <span
               className='delete-icon cursor-pointer pull-right col-2'
-              onClick={(_) => handleOnDeleteQuestion(quiz.id)}
+              onClick={(_) =>
+                window.confirm('Are you sure you wish to delete this item?') &&
+                handleOnDeleteQuestion(quiz.id)
+              }
             >
               <Trash />
             </span>

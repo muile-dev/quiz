@@ -1,8 +1,8 @@
-import { FC, useEffect } from 'react';
-import useQuiz from '../customerHooks/UseQuiz';
+import { FC } from 'react';
+import useQuiz from '../customHooks/UseQuiz';
 
-import LeftPanel from './LeftPane';
-import RightPanel from './RightPane';
+import LeftPane from './LeftPane';
+import RightPane from './RightPane';
 
 const QuizPage: FC = () => {
   const {
@@ -16,31 +16,29 @@ const QuizPage: FC = () => {
     handleAddOption,
     handleOnChangeOption,
     handleOnDeleteOption,
+    hanleOnSelectedImage,
   } = useQuiz();
-
-  useEffect(() => {
-    console.log('quizSelected', quizSelected);
-  }, [quizSelected]);
 
   return (
     <div
       className='row bg-gradient rounded mt-5'
       style={{ backgroundColor: '#05192d' }}
     >
-      <LeftPanel
+      <LeftPane
         quizzes={quizzes}
         quizSelected={quizSelected}
         handleOnDeleteQuestion={handleOnDeleteQuestion}
         handleOnClickQuestion={handleOnClickQuestion}
         handleOnAddClick={handleAddQuestion}
       />
-      <RightPanel
+      <RightPane
         notify={notify}
         quizSelected={quizSelected}
         handleOnChangeQuestion={handleOnChangeQuestion}
         handleOnAddClick={handleAddOption}
         handleOnChangeOption={handleOnChangeOption}
         handleOnDeleteOption={handleOnDeleteOption}
+        hanleOnSelectedImage={hanleOnSelectedImage}
       />
     </div>
   );

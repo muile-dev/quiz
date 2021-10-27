@@ -26,7 +26,7 @@ const useQuiz = () => {
 
   const setStoreQuizzes = (newQuizzes: Quiz[]) => {
     localStorage.setItem(PAGE_STORAGE, JSON.stringify(newQuizzes));
-    setQuizzes(newQuizzes);
+    setQuizzes(() => newQuizzes);
   };
 
   const handleAddQuestion = () => {
@@ -54,12 +54,15 @@ const useQuiz = () => {
 
     setStoreQuizzes(newQuizzes);
     if (quizId === quizSelected?.id) {
-      console.log('reset selected', quizId);
       setQuizSelected(() => null);
     }
   };
 
   const handleOnChangeQuestion = (quizId: number, question: string) => {
+    if (question.length <= 0) {
+      setNotify('Question should not be empty');
+      return;
+    }
     setStoreQuizzes({
       ...quizzes,
       [quizId]: {
@@ -78,7 +81,7 @@ const useQuiz = () => {
     const quiz = { ...quizzes[quizId] };
     const optionKeys = Object.keys(quiz.options);
     if (optionKeys.length >= MAX_OPTIONS_NUMBER) {
-      setNotify('The Option should equal or less than 6');
+      setNotify(`The Option should equal or less than ${MAX_OPTIONS_NUMBER}`);
       return;
     }
     const lastOptionId =
@@ -103,6 +106,11 @@ const useQuiz = () => {
       setNotify('Quiz is not available');
       return;
     }
+    if (optionContent.length <= 0) {
+      setNotify('Option should not be empty');
+      return;
+    }
+
     const quizOptions = quizzes[quizId].options;
     const options = {
       ...quizOptions,
@@ -124,11 +132,26 @@ const useQuiz = () => {
   const handleOnDeleteOption = (quizId: number, optionId: number) => {
     const newQuizzes = { ...quizzes };
     if (Object.keys(newQuizzes[quizId].options).length <= MIN_OPTIONS_NUMBER) {
-      setNotify('The Option should equal or greater than 2');
+      setNotify(
+        `The Option should equal or greater than ${MIN_OPTIONS_NUMBER}`
+      );
       return;
     }
     delete newQuizzes[quizId].options[optionId];
     setStoreQuizzes(newQuizzes);
+  };
+
+  const hanleOnSelectedImage = (
+    quizId: number,
+    selectedImage: string | null
+  ) => {
+    setStoreQuizzes({
+      ...quizzes,
+      [quizId]: {
+        ...quizzes[quizId],
+        image: selectedImage,
+      },
+    });
   };
 
   return {
@@ -142,6 +165,7 @@ const useQuiz = () => {
     handleAddOption,
     handleOnChangeOption,
     handleOnDeleteOption,
+    hanleOnSelectedImage,
   };
 };
 

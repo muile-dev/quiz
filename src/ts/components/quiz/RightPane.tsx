@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import { FC, useState } from 'react';
 
 import Header from '../atoms/Header';
 import ActionButton from '../molecules/quiz/ActionButton';
@@ -17,6 +17,7 @@ type Props = {
     optionId: number,
     optionContent: string
   ) => void;
+  hanleOnSelectedImage: (quizId: number, selectedImage: string | null) => void;
 };
 
 const RightPane: FC<Props> = ({
@@ -26,6 +27,7 @@ const RightPane: FC<Props> = ({
   handleOnChangeQuestion,
   handleOnDeleteOption,
   handleOnChangeOption,
+  hanleOnSelectedImage,
 }) => {
   const [deleteMode, setDeleteMode] = useState(false);
   const toggleDeleteMode = () => setDeleteMode((prevState) => !prevState);
@@ -52,8 +54,9 @@ const RightPane: FC<Props> = ({
           <div className='question-design'>
             <div className='content pt-5'>
               <Question
-                question={quizSelected.question}
+                quiz={quizSelected}
                 handleOnChangeQuestion={handleOnSaveQuestion}
+                hanleOnSelectedImage={hanleOnSelectedImage}
               />
               <OptionList
                 deleteMode={deleteMode}
