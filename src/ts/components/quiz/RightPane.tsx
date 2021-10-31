@@ -55,7 +55,7 @@ const RightPane: FC<Props> = ({
         <Header
           title={`Design Question ${quizSelected ? quizSelected.id : ''}`}
         />
-        {notify && (
+        {quizSelected && notify && (
           <div className='alert alert-danger' role='alert'>
             {notify}
           </div>
@@ -77,6 +77,8 @@ const RightPane: FC<Props> = ({
             </div>
 
             <ActionButton
+              addDisabled={Object.keys(quizSelected.options).length >= 6}
+              deleteDisabled={Object.keys(quizSelected.options).length <= 2}
               deleteMode={deleteMode}
               handleOnAddClick={(e) => handleOnAddClick(quizSelected.id)}
               handleOnToggleDeleteMode={toggleDeleteMode}

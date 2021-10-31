@@ -4,12 +4,16 @@ interface Props {
   handleOnAddClick: (e: React.MouseEvent<HTMLElement>) => void;
   handleOnToggleDeleteMode: () => void;
   deleteMode: boolean;
+  addDisabled?: boolean;
+  deleteDisabled?: boolean;
 }
 
 const ActionButton: FC<Props> = ({
   handleOnAddClick,
   handleOnToggleDeleteMode,
   deleteMode,
+  addDisabled,
+  deleteDisabled,
 }) => {
   return (
     <>
@@ -26,10 +30,12 @@ const ActionButton: FC<Props> = ({
             <button
               className='btn btn-primary bg-gradient mx-2'
               onClick={handleOnAddClick}
+              disabled={addDisabled}
             >
               ADD
             </button>
             <button
+              disabled={deleteDisabled}
               onClick={handleOnToggleDeleteMode}
               className='btn btn-primary bg-gradient mx-2'
             >

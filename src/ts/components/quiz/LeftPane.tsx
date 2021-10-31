@@ -3,10 +3,10 @@ import { FC, useState } from 'react';
 import Header from '../atoms/Header';
 import ActionButton from '../molecules/quiz/ActionButton';
 import QuestionList from '../molecules/quiz/QuestionList';
-import Quiz from '../types/quiz';
+import { Quiz, Quizzes } from '../types/quiz';
 
 interface Props {
-  quizzes: Quiz[];
+  quizzes: Quizzes;
   quizSelected: Quiz | null;
   handleOnAddClick: (e: React.MouseEvent<HTMLElement>) => void;
   handleOnClickQuestion: (quizId: number) => void;

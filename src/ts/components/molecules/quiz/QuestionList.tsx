@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import Trash from '../../atoms/Trash';
-import Quiz from '../../types/quiz';
+import { Quizzes, Quiz } from '../../types/quiz';
 
 type Props = {
-  quizzes: Quiz[];
+  quizzes: Quizzes;
   quizSelected: Quiz | null;
   deleteMode: boolean;
   handleOnClickQuestion: (questionIndex: number) => void;

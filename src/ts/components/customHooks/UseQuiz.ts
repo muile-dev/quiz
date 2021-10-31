@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react';
 /**
  * Type
  */
-import Quiz from '../types/quiz';
+import { Quiz, Quizzes } from '../types/quiz';
 
 const PAGE_STORAGE = 'quiz';
 const MAX_OPTIONS_NUMBER = 6;
@@ -24,7 +24,7 @@ const useQuiz = () => {
   const handleOnClickQuestion = (quizId: number) =>
     setQuizSelected(quizzes[quizId]);
 
-  const setStoreQuizzes = (newQuizzes: Quiz[]) => {
+  const setStoreQuizzes = (newQuizzes: Quizzes) => {
     localStorage.setItem(PAGE_STORAGE, JSON.stringify(newQuizzes));
     setQuizzes(() => newQuizzes);
   };
