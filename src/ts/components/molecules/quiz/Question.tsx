@@ -1,4 +1,9 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState, useRef } from 'react';
+
+/**
+ * libs
+ */
+import { blobToBase64 } from './../../libs/binary';
 
 import TextArea from '../../atoms/TextArea';
 import { Quiz } from './../../types/quiz';
@@ -14,11 +19,12 @@ const Question: FC<Props> = ({
   handleOnChangeQuestion,
   hanleOnSelectedImage,
 }) => {
-  const [selectedImage, setSelectedImage] = useState<null | string>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [savedImage, setSavedImage] = useState<boolean>(false);
+  const selectImageRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
-    setSelectedImage(quiz.image || null);
+    setSelectedImage(() => quiz.image || null);
     return () => {
       setSavedImage(() => false);
     };
@@ -26,9 +32,11 @@ const Question: FC<Props> = ({
 
   const imageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const fileList = e.target.files;
-    if (fileList && fileList.length > 0) {
-      setSelectedImage(() => URL.createObjectURL(fileList[0]));
-    }
+    fileList &&
+      fileList.length > 0 &&
+      blobToBase64(fileList[0], (imageSelect) => {
+        setSelectedImage(() => imageSelect);
+      });
   };
 
   const saveSelectedImage = () => {
@@ -41,6 +49,10 @@ const Question: FC<Props> = ({
     setSelectedImage(null);
   };
 
+  const onClickSelectImage = () => {
+    selectImageRef.current?.click();
+  };
+
   return (
     <div className='mb-3 row h4'>
       <label className='col-sm-2 col-form-label'>Question</label>
@@ -50,7 +62,20 @@ const Question: FC<Props> = ({
           onEnterInput={handleOnChangeQuestion}
         />
 
-        <input accept='image/*' type='file' onChange={imageChange} />
+        <input
+          accept='image/*'
+          type='file'
+          onChange={imageChange}
+          key={selectedImage}
+          className='d-none'
+          ref={selectImageRef}
+        />
+        <button
+          className='btn btn-primary bg-gradient m-2'
+          onClick={onClickSelectImage}
+        >
+          Add Image
+        </button>
         {/* <button className='btn btn-primary bg-gradient m-2'>ADD IMAGE</button> */}
         {selectedImage && (
           <div
@@ -59,7 +84,7 @@ const Question: FC<Props> = ({
             <img
               key={selectedImage}
               src={selectedImage}
-              style={{ maxWidth: '100%' }}
+              style={{ maxWidth: '100%', maxHeight: '100%' }}
               alt='Thumb'
             />
             {!savedImage && (

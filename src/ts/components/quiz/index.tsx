@@ -17,11 +17,12 @@ const QuizPage: FC = () => {
     handleOnChangeOption,
     handleOnDeleteOption,
     hanleOnSelectedImage,
+    handleOnBackToQuetionList,
   } = useQuiz();
 
   return (
     <div
-      className='row bg-gradient rounded mt-5'
+      className='row bg-gradient rounded'
       style={{ backgroundColor: '#05192d' }}
     >
       <LeftPane
@@ -39,6 +40,7 @@ const QuizPage: FC = () => {
         handleOnChangeOption={handleOnChangeOption}
         handleOnDeleteOption={handleOnDeleteOption}
         hanleOnSelectedImage={hanleOnSelectedImage}
+        handleOnBackToQuetionList={handleOnBackToQuetionList}
       />
     </div>
   );

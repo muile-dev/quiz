@@ -154,6 +154,8 @@ const useQuiz = () => {
     });
   };
 
+  const handleOnBackToQuetionList = () => setQuizSelected(() => null);
+
   return {
     quizzes,
     quizSelected,
@@ -166,6 +168,7 @@ const useQuiz = () => {
     handleOnChangeOption,
     handleOnDeleteOption,
     hanleOnSelectedImage,
+    handleOnBackToQuetionList,
   };
 };
 

@@ -24,7 +24,11 @@ const LeftPane: FC<Props> = ({
   const toggleDeleteMode = () => setDeleteMode((prevState) => !prevState);
 
   return (
-    <div className='left-pane col-sm-4'>
+    <div
+      className={`left-pane col-sm-4 ${
+        quizSelected ? 'd-none d-md-block' : ''
+      }`}
+    >
       <div className='left-content p-4 text-white'>
         <Header title='Select your questions' />
         <QuestionList

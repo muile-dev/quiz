@@ -18,6 +18,7 @@ type Props = {
     optionContent: string
   ) => void;
   hanleOnSelectedImage: (quizId: number, selectedImage: string | null) => void;
+  handleOnBackToQuetionList: () => void;
 };
 
 const RightPane: FC<Props> = ({
@@ -28,6 +29,7 @@ const RightPane: FC<Props> = ({
   handleOnDeleteOption,
   handleOnChangeOption,
   hanleOnSelectedImage,
+  handleOnBackToQuetionList,
 }) => {
   const [deleteMode, setDeleteMode] = useState(false);
   const toggleDeleteMode = () => setDeleteMode((prevState) => !prevState);
@@ -38,9 +40,17 @@ const RightPane: FC<Props> = ({
 
   return (
     <div
-      className='right-pane col-sm-8 px-0 bg-gradient rounded'
+      className={`px-0 bg-gradient rounded col-sm-8 ${
+        quizSelected ? '' : 'd-none d-md-block'
+      }`}
       style={{ backgroundColor: '#f7f3eb' }}
     >
+      <button
+        className='m-2 bg-gradient rounded btn btn-default d-sm-block d-md-none'
+        onClick={handleOnBackToQuetionList}
+      >
+        {'Back'}
+      </button>
       <div className='right-content p-4'>
         <Header
           title={`Design Question ${quizSelected ? quizSelected.id : ''}`}
