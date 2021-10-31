@@ -27,6 +27,7 @@ const useQuiz = () => {
   const setStoreQuizzes = (newQuizzes: Quizzes) => {
     localStorage.setItem(PAGE_STORAGE, JSON.stringify(newQuizzes));
     setQuizzes(() => newQuizzes);
+    setNotify(() => null);
   };
 
   const handleAddQuestion = () => {
