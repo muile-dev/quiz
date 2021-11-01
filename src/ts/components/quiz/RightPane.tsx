@@ -40,16 +40,16 @@ const RightPane: FC<Props> = ({
 
   return (
     <div
-      className={`px-0 bg-gradient rounded col-sm-8 ${
+      className={`px-0 bg-gradient rounded col-md-8 ${
         quizSelected ? '' : 'd-none d-md-block'
       }`}
       style={{ backgroundColor: '#f7f3eb' }}
     >
       <button
-        className='m-2 bg-gradient rounded btn btn-default d-sm-block d-md-none'
+        className='m-2 bg-gradient rounded btn btn-default d-block d-md-none'
         onClick={handleOnBackToQuetionList}
       >
-        {'Back'}
+        Back
       </button>
       <div className='right-content p-4'>
         <Header

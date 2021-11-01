@@ -25,7 +25,7 @@ const LeftPane: FC<Props> = ({
 
   return (
     <div
-      className={`left-pane col-sm-4 ${
+      className={`left-pane col-md-4 ${
         quizSelected ? 'd-none d-md-block' : ''
       }`}
     >
