@@ -1,4 +1,4 @@
-Assignment Summary
+## Assignment Summary
 
 The objective is to create a responsive quiz authoring tool using the Facebook React framework, with the following features:
 
@@ -16,11 +16,11 @@ The objective is to create a responsive quiz authoring tool using the Facebook R
 
 The detailed design and wireframe are detailed below. You may be make logical assumptions where required.
 
-Design
+## Design
 
 The Quiz Authoring tool would have 2 panes on a desktop screen as explained below (refer wireframe on the next page):
 
-• Left pane – question selector
+**Left pane – question selector**
 
 • This pane is used to add new questions to the list
 
@@ -28,7 +28,7 @@ The Quiz Authoring tool would have 2 panes on a desktop screen as explained belo
 
 • Clicking on Delete should go into a Delete mode where any number of questions can be deleted.
 
-• Right pane – choice creator
+**Right pane – choice creator**
 
 • The right pane should have a sequence of text boxes (with automatically
 
@@ -42,13 +42,18 @@ The Quiz Authoring tool would have 2 panes on a desktop screen as explained belo
 
 • Optionally, an image could be added to the question (for example, an image of a heart showing a highlighted area) by selecting from the local file system
 
-• Responsiveness and Mobile Design
+**Responsiveness and Mobile Design**
 
 • The screen should be responsive and should resize according to the width
 
 • Mobile design has deliberately not been provided to evaluate the developer’s ability to handle this problem
 
-• You may use the Bootstrap grid system to manage responsiveness (however, do not use any pre-build UI components for any other part of the application) Evaluation parameters
+• You may use the Bootstrap grid system to manage responsiveness (however, do not use any pre-build UI components for any other part of the application)
+<img width="378" alt="Screen Shot 2022-03-23 at 11 06 08" src="https://user-images.githubusercontent.com/83914320/159621536-85812e0b-0725-48b3-b17b-ee1dd86794a9.png">
+
+
+
+**Evaluation parameters**
 
 You will be evaluated on the following parameters, each on a 4-point scale (Poor, Below Par, Meets Bar, Distinctive)
 
