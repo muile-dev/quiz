@@ -1,46 +1,63 @@
-# Getting Started with Create React App
+Assignment Summary
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The objective is to create a responsive quiz authoring tool using the Facebook React framework, with the following features:
 
-## Available Scripts
+• Two pane design with left pane for question selection and right pane for question authoring
 
-In the project directory, you can run:
+• Adding multiple choices (between 2 and 6) for each question
 
-### `yarn start`
+• Adding images on the question, if required
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+• Deleting a question
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+• Saving the objects to the local storage so that the data is retrieved on browser refresh
 
-### `yarn test`
+• Mobile phone support
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The detailed design and wireframe are detailed below. You may be make logical assumptions where required.
 
-### `yarn build`
+Design
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The Quiz Authoring tool would have 2 panes on a desktop screen as explained below (refer wireframe on the next page):
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+• Left pane – question selector
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+• This pane is used to add new questions to the list
 
-### `yarn eject`
+• Clicking on Add should add a new question with the text “New Question 1”, “New Question 2”, etc.,
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+• Clicking on Delete should go into a Delete mode where any number of questions can be deleted.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+• Right pane – choice creator
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+• The right pane should have a sequence of text boxes (with automatically
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+• expanding height) to edit the question text and to add various choices
 
-## Learn More
+• When the text box pertaining the question text is edited, the left question
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+• pane for that question should automatically update
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+• Between 2 and 6 choices shall permitted
+
+• Optionally, an image could be added to the question (for example, an image of a heart showing a highlighted area) by selecting from the local file system
+
+• Responsiveness and Mobile Design
+
+• The screen should be responsive and should resize according to the width
+
+• Mobile design has deliberately not been provided to evaluate the developer’s ability to handle this problem
+
+• You may use the Bootstrap grid system to manage responsiveness (however, do not use any pre-build UI components for any other part of the application) Evaluation parameters
+
+You will be evaluated on the following parameters, each on a 4-point scale (Poor, Below Par, Meets Bar, Distinctive)
+
+a) React application – this parameter will evaluate you on your ability to understand and apply key React concepts, including what component architecture you have used
+
+b) Data structuring – this parameter will evaluate you on how sound the data architecture of your code is
+
+c) CSS application – this parameter will evaluate on your CSS understanding and how you have applied them to this design
+
+d) Finish and aesthetics – this parameter will evaluate you on the overall finish and aesthetics including the key question “Is the final output production-ready?”. This is different from CSS application as a good aesthetic sense can come in handy when you are developing a native application or on any another platform.
+
+e) Code quality – this parameter will evaluate you on the organization of code, its readability and the ability of another developer to understand your code
