@@ -49,6 +49,8 @@ The Quiz Authoring tool would have 2 panes on a desktop screen as explained belo
 • Mobile design has deliberately not been provided to evaluate the developer’s ability to handle this problem
 
 • You may use the Bootstrap grid system to manage responsiveness (however, do not use any pre-build UI components for any other part of the application)
+
+
 <img width="378" alt="Screen Shot 2022-03-23 at 11 06 08" src="https://user-images.githubusercontent.com/83914320/159621536-85812e0b-0725-48b3-b17b-ee1dd86794a9.png">
 
 
